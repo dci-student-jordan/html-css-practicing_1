@@ -5,13 +5,17 @@ const loginForm = document.getElementById('loginForm')
 const vanish = document.querySelector('#vanishingInv')
 
 loginShower.addEventListener('mouseover', () => {
-        loginForm.style.display = 'block'
-        vanish.style.display = 'none';
-    })
+    loginForm.style.display = 'block'
+    vanish.style.display = 'none';
+    if (screen.width < 600)
+        loginShower.style.height = '250px';
+})
 
     loginShower.addEventListener('mouseout', function () {
     loginForm.style.display = 'none'
     vanish.style.display = 'block';
+    if (screen.width < 600)
+        loginShower.style.height = '50px';
 })
 
 
