@@ -48,7 +48,30 @@
             <h3>This is some other content</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae rem perferendis quam rerum autem laudantium voluptatum accusantium a corporis voluptates labore provident dicta repellat pariatur reprehenderit, commodi, possimus architecto dolore, nesciunt debitis deleniti dolorem quidem voluptate hic! Expedita, ducimus exercitationem commodi delectus error provident! Aut iusto, facilis ipsa esse vero quos dolore obcaecati exercitationem, ea ipsum atque nobis tempora quod, odit dignissimos culpa minus magni ut a! Nemo delectus quos porro a, nesciunt dicta ducimus aperiam maxime, soluta reiciendis libero recusandae ut quod iste unde sapiente vel nisi. Alias fuga nobis cum quaerat esse eveniet, animi unde ad corporis accusantium pariatur similique error dolores officiis ipsa aut eaque sed possimus minima omnis eos mollitia molestiae iste vero! Iure fuga quisquam cumque molestiae voluptate ab magni nostrum illum cupiditate. Doloremque corrupti, facere repudiandae enim pariatur voluptatem velit laudantium voluptatibus, error autem placeat blanditiis in nulla exercitationem laboriosam est suscipit eveniet numquam vel reiciendis facilis vitae perspiciatis. Cumque odio quis explicabo alias qui, aliquam omnis corrupti iusto quod at ipsam architecto natus perferendis, nostrum non ea consequatur voluptate odit porro consequuntur aliquid! Magni reprehenderit debitis adipisci culpa suscipit saepe dolores quibusdam quisquam similique id neque excepturi, cum illum quaerat consequuntur necessitatibus earum qui, dolorum, nesciunt quasi! Hic, saepe. Laborum obcaecati veritatis nemo neque magni vitae tenetur similique laboriosam! Veniam aperiam eaque sit! Ullam odit optio ipsum non maxime voluptate rem tempore dolorem. Porro corrupti sint officia dignissimos praesentium ducimus facilis quo sunt error? Veniam quasi modi distinctio fugit soluta ad voluptates id perferendis eos ullam delectus quo ducimus, ratione cupiditate velit debitis, aliquid sunt molestias cum qui! Rem possimus iste quisquam voluptatibus repellendus laboriosam necessitatibus at ea esse earum eum vel voluptate nam sint ut, eaque, libero reiciendis optio amet, illum tenetur repellat? Soluta quae sed dolores pariatur perferendis, sapiente harum laboriosam vel velit distinctio voluptate hic voluptas, suscipit nobis nulla quasi esse tenetur amet assumenda natus commodi deleniti. Enim neque ducimus excepturi amet error nulla veniam perspiciatis repellendus, distinctio placeat quod molestiae voluptatum labore! Magnam aut similique nisi, quibusdam illum dolorum, cumque quisquam corporis adipisci quis expedita! Enim debitis ea deserunt ab, eligendi, assumenda ratione magnam impedit recusandae sed eius nam voluptas. Sint quaerat blanditiis nostrum, quo omnis repudiandae placeat, magni amet obcaecati ipsam, libero illo veniam id exercitationem similique tenetur magnam a voluptatibus non alias illum voluptatem est. Error expedita consectetur qui, dolore modi aliquam a provident sapiente voluptates tempore cumque doloremque explicabo repellat iure praesentium reiciendis fuga eos? Qui modi numquam fuga? Molestias illo voluptate fugit nostrum voluptatem officia ex incidunt similique repudiandae qui voluptatibus veritatis itaque unde dignissimos corrupti vitae alias, molestiae asperiores deserunt eaque! Quia aliquid, quas nisi quisquam harum atque accusamus, enim nostrum sapiente, minima odio officia id. Magnam et quo adipisci mollitia unde ratione culpa placeat, vel autem voluptates perferendis, accusantium cum. Expedita aperiam doloremque eius quasi repudiandae unde nostrum iste id porro dolores vero illo sit inventore vitae eos voluptates, similique pariatur culpa, beatae voluptas ab, accusantium quidem! Minima accusamus maiores porro. Dolore asperiores excepturi alias soluta.</p>
         </section>
-
+        <section class="content">
+            <h3>This is content from the Javascript examples above:</h3>
+            <div class="jspages">
+                <div>
+                    <h5>allowing scripts:</h5>
+                    <iframe src="./downloads/page-js-1.html" sandbox="allow-scripts" frameborder="0" width="100%"></iframe>
+                        <h5>here the alert is blocked:</h5>
+                    <div>
+                        <iframe id="jspage2" src="./downloads/page-js-2.html" sandbox="allow-scripts" frameborder="0" width="100%"></iframe>
+                        <h6>...but can be unblocked with "allow-modal" in sandbox attribute:</h6>
+                        <button id="allowmodal" onclick="unblockAlert()">unblock alert</button>
+                    </div>
+                </div>
+                <div>
+                    <h5>another one allowing scrips:</h5>
+                    <iframe src="./downloads/page-js-3.html" sandbox="allow-scripts" frameborder="0" width="100%" height="70%"></iframe>
+                </div>
+            </div>
+            <div style="margin: auto;">
+                <h3>And this is a completly different page:</h3>
+                <h5>But the soundengine in there won't work as long as it is embedded in an iframe.</h5>
+                <iframe src="https://reinissance.github.io/webpdTest/index.html" sandbox="allow-scripts" frameborder="0" width="100%" height="500px"></iframe>
+            </div>
+        </section>
     <script src="scripts/script.js"></script>
 </body>
 </html>

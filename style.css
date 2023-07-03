@@ -4,12 +4,8 @@
     margin: 0px;
     text-shadow: 0 0 10px #dbdbdb;
     padding: 20px;
-    
+    transition: 0.3s;
 }
-
-.loginShower h6 {
-}
-
 
 header {
     background-image: linear-gradient(rgba(155, 155, 155, 0.8) ,rgba(200, 200, 200, 0.2));
@@ -45,8 +41,12 @@ body {
 }
 
 .content {
+    padding: 20px;
+    box-shadow: #dbdbdb;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.432), rgba(134, 132, 132, 0.438));
     max-width: 80%;
     margin: auto;
+    margin-top: 20px;
     text-align: justify;
 }
 
@@ -73,6 +73,17 @@ body {
     padding: 5px;
 }
 
+.jspages {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.jspages div {
+    margin: 10px;
+}
+
 @media screen and (min-width:600px) {
 
     nav {
@@ -92,5 +103,13 @@ body {
         width:fit-content;
         height: 50px;
         margin: 10px;
+    }
+
+    .jspages {
+        flex-direction: row;
+    }
+
+    .jspages iframe {
+        width: fit-content;
     }
 }
