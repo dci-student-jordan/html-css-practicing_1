@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <h1>A heading here</h1>
+  <link rel="stylesheet" href="../style.css">
+</header>
+
+<body>
+
+  <h1>My First Heading</h1>
+  <p>My first paragraph.</p>
+
+  <form id="form1" method="POST" action="https://www.mydemopage.com">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <hr>
+
+  <form id="form2" onsubmit="return handle_form_submission()">
+    <input type="text" name='name' id='name' placeholder='Name' />
+    <button type='submit'>Post it</button>
+  </form>
+  <hr>
+
+  <script>
+    function handle_form_submission() {
+      alert('Submit button pressed');
+      return false;
+
+    }
+  </script>
+
+
+
+  <button type="button" onclick="my_button_click_handler()">Click this button</button>
+  <script>
+    function my_button_click_handler() {
+      alert('Button Clicked');
+    }
+  </script>
+
+</body>
+
+</html>
