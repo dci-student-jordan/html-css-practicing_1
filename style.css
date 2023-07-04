@@ -2,7 +2,6 @@
     height: 50px;
     text-align: right;
     margin: 0px;
-    text-shadow: 0 0 10px #dbdbdb;
     padding: 20px;
     transition: 0.3s;
 }
@@ -14,7 +13,6 @@ header {
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
     font-size: xx-large;
-    text-align: center;
     margin-top: 10px;
 }
 
@@ -38,6 +36,13 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.623), white);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-content: center;
+    text-align: center;
+    text-shadow: 0 0 10px #6dd8aa79;
+    box-shadow: 3px 6px rgba(40, 85, 77, 0.5), -1em 0 .4em rgba(197, 197, 197, 0.726);
 }
 
 .content {
