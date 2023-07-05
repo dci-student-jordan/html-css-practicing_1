@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <h1>A heading here</h1>
+  <link rel="stylesheet" href="../style.css">
+</header>
+
+<body>
+
+  <h1>My First Heading</h1>
+
+  <p>My first paragraph.</p>
+  <script>
+
+
+
+    function getResponse() {
+      const host = 'api.frankfurter.app';
+      fetch(`https://${host}/latest?amount=10&from=GBP&to=USD`)
+        .then(resp => resp.json())
+        .then((data) => {
+          document.querySelector("p").textContent = `10 GBP = ${data.rates.USD} USD`;
+        });
+    }
+
+  </script>
+  <input type="button" value="Get data" onclick="getResponse();" />
+</body>
+
+</html>
