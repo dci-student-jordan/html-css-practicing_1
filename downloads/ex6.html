@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <h1>A heading here</h1>
+  <link rel="stylesheet" href="../style.css">
+</header>
+
+<body>
+
+  <h1>My first requested Data</h1>
+
+  <p id="iss">Fetch some free data awailable with this button:</p>
+    <script>
+      function getResponse() {
+        const host = 'api.open-notify.org';
+        fetch(`http://${host}/iss-now.json`)
+          .then(resp => resp.json())
+          .then((data) => {
+            document.querySelector("#iss").textContent = `the ISS is Located here :Latitude :${data.iss_position.latitude}; Longitude: ${data.iss_position.longitude}`;
+          });
+          fetch(`http://${host}/astros.json`)
+          .then(resp => resp.json())
+          .then((data) => {
+            var numPeople = data.number;
+            document.body.append("Currently "+ numPeople + " people are in space right now: ")
+            var guys = data.people
+            for (i=0; i<guys.length; i++) {
+              var guy = guys[i]
+              document.body.append(guy.name+ " is on the "+guy.craft);
+              document.body.append((i==8) ? " and " : (i==9) ? "." : ", ")
+            }
+          });
+      }
+    </script>
+  <input type="button" value="Get data" onclick="getResponse();" />
+</body>
+
+</html>
