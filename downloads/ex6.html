@@ -4,13 +4,13 @@
 </head>
 <html>
 <header>
-  <h1>A heading here</h1>
+  <h1>requested promises</h1>
 </header>
 <body>
   <h1>My first requested Data</h1>
 <section class="content">
-  <input id="fetchButton" type="button" value="Get data" onclick="getResponse();" />
   <p id="iss">Fetch some free data awailable with this button.</p>
+  <input id="fetchButton" type="button" value="Get data" onclick="getResponse();" />
 </section>
 <script>
   var fetching = false
@@ -20,23 +20,33 @@
     fetchText.textContent = "fetching data.."
     fetchingData()
     const host = 'api.open-notify.org';
-      fetch(`http://${host}/astros.json`)
+    const fetchButton = document.querySelector("#fetchButton")
+    try {
+      await fetch(`http://${host}/iss-now.json`)
+      .then(resp => resp.json())
+      .then((data) => {
+        fetchText.textContent = `the ISS is Located here :Latitude :${data.iss_position.latitude}; Longitude: ${data.iss_position.longitude}`;
+      })
+      await fetch(`http://${host}/astros.json`)
       .then(resp => resp.json())
       .then((data) => {
         var numText = document.createTextNode(`Currently  ${data.number} people are in space right now: `)
-        fetchText.parentNode.appendChild(numText, fetchText)
+        fetchButton.parentNode.appendChild(numText, fetchButton)
         for (i=0; i<data.people.length; i++) {
           var guy = data.people[i]
-          var guyText = document.createTextNode(guy.name+ " is on the "+guy.craft + ((i==(data.people.length-2)) ? " and " : (i==(data.people.length-1)) ? "." : ", "))
-          fetchText.parentNode.appendChild(guyText, fetchText);
+          var guyText = document.createTextNode(guy.name+ " is on the "+guy.craft + ((i==(data.people.length-2)) ? " and " : (i==(data.people.length-1)) ? " too." : ", "))
+          fetchButton.parentNode.appendChild(guyText, fetchButton);
         }
       })
-      fetch(`http://${host}/iss-now.json`)
-      .then(resp => resp.json())
-      .then((data) => {
+      var moreText = document.createElement('p')
+    // moreText.textContent = "TestContent"
+    // document.querySelector('section').appendChild(moreText)
+      fetching = false
+      fetchButton.setAttribute('hidden', 'true')
+    } catch (error) {
+        console.error(`Something went wrong! ${error.message}`)
         fetching = false
-        fetchText.textContent = `the ISS is Located here :Latitude :${data.iss_position.latitude}; Longitude: ${data.iss_position.longitude}`;
-      })
+      }
   }
   function fetchingData () {
     fetchText.textContent = fetchText.textContent + "."
