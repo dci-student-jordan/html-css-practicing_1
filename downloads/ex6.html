@@ -25,7 +25,7 @@
       await fetch(`http://${host}/iss-now.json`)
       .then(resp => resp.json())
       .then((data) => {
-        fetchText.textContent = `the ISS is Located here :Latitude :${data.iss_position.latitude}; Longitude: ${data.iss_position.longitude}`;
+        fetchText.textContent = `the ISS is located here: Latitude: ${data.iss_position.latitude}; Longitude: ${data.iss_position.longitude}`;
       })
       await fetch(`http://${host}/astros.json`)
       .then(resp => resp.json())
@@ -38,9 +38,33 @@
           fetchButton.parentNode.appendChild(guyText, fetchButton);
         }
       })
-      var moreText = document.createElement('p')
-    // moreText.textContent = "TestContent"
-    // document.querySelector('section').appendChild(moreText)
+      const nexthost = 'data.nasa.gov/resource'
+      await fetch(`https://${nexthost}/y77d-th95.json`)
+      .then(resp => resp.json())
+      .then((data) => {
+        var meteoritesText = document.createElement('p')
+        var contentsection = document.querySelector('section')
+        meteoritesText.textContent = `Here are ${data.length} meteroite landings registered by the NASA:`
+        contentsection.appendChild(meteoritesText)
+        var meteoriteText = document.createElement('p')
+        var selectmeteroite = document.createElement('select')
+        selectmeteroite.onchange = function () {
+          var mInfo =  data[selectmeteroite.selectedIndex]
+          var yearstring = mInfo.year.split("-")
+          var lyear = yearstring[0]
+          document.querySelector('#meteoriteInfo').textContent = mInfo.name + " landed on earth with a mass of " + mInfo.mass + " in the year " + lyear + " at latitude " + mInfo.reclat + " and longitude " + mInfo.reclong + "."
+        }
+        for (var i = 0; i<data.length; i++){
+            var opt = document.createElement('option');
+            opt.value = data[i];
+            opt.innerHTML = data[i].name;
+            selectmeteroite.appendChild(opt);
+        }
+        contentsection.appendChild(selectmeteroite)
+        meteoriteText.id = "meteoriteInfo"
+        meteoriteText.textContent = `select a meteorite to get more information about it.`
+        contentsection.appendChild(meteoriteText)
+      })
       fetching = false
       fetchButton.setAttribute('hidden', 'true')
     } catch (error) {
