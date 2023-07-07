@@ -22,7 +22,7 @@
     const host = 'api.open-notify.org';
     const fetchButton = document.querySelector("#fetchButton")
     try {
-      await fetch(`http://${host}/iss-now.json`)
+     /*  await fetch(`http://${host}/iss-now.json`)
       .then(resp => resp.json())
       .then((data) => {
         fetchText.textContent = `the ISS is located here: Latitude: ${data.iss_position.latitude}; Longitude: ${data.iss_position.longitude}`;
@@ -37,7 +37,7 @@
           var guyText = document.createTextNode(guy.name+ " is on the "+guy.craft + ((i==(data.people.length-2)) ? " and " : (i==(data.people.length-1)) ? " too." : ", "))
           fetchButton.parentNode.appendChild(guyText, fetchButton);
         }
-      })
+      }) */
       const nexthost = 'data.nasa.gov/resource'
       await fetch(`https://${nexthost}/y77d-th95.json`)
       .then(resp => resp.json())
