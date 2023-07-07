@@ -24,7 +24,7 @@
     try {
       //this don't work on ios (safari or firefox tested) , because the page has https:// and the request http:// which results in a same origin block there.
       //so we exclude this stuff on these devices:
-      if (!iOS) {
+      if (iOS) {
         await fetch(`http://${host}/iss-now.json`)
         .then(resp => resp.json())
         .then((data) => {
