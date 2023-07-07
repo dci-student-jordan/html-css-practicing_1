@@ -22,28 +22,8 @@
     const host = 'api.open-notify.org';
     const fetchButton = document.querySelector("#fetchButton")
     try {
-      //this don't work on ios (safari or firefox tested) , because the page has https:// and the request http:// which results in a same origin block there.
-      //so we exclude this stuff on these devices:
-      if (iOS) {
-        await fetch(`http://${host}/iss-now.json`)
-        .then(resp => resp.json())
-        .then((data) => {
-          fetchText.textContent = `the ISS is located here: Latitude: ${data.iss_position.latitude}; Longitude: ${data.iss_position.longitude}`;
-        })
-        await fetch(`http://${host}/astros.json`)
-        .then(resp => resp.json())
-        .then((data) => {
-          var numText = document.createTextNode(`Currently  ${data.number} people are in space right now: `)
-          fetchButton.parentNode.appendChild(numText, fetchButton)
-          for (i=0; i<data.people.length; i++) {
-            var guy = data.people[i]
-            var guyText = document.createTextNode(guy.name+ " is on the "+guy.craft + ((i==(data.people.length-2)) ? " and " : (i==(data.people.length-1)) ? " too." : ", "))
-            fetchButton.parentNode.appendChild(guyText, fetchButton);
-          }
-        })
-      }
-      const nexthost = 'data.nasa.gov/resource'
-      await fetch(`https://${nexthost}/y77d-th95.json`)
+      const host = 'data.nasa.gov/resource'
+      await fetch(`https://${host}/y77d-th95.json`)
       .then(resp => resp.json())
       .then((data) => {
         var meteoritesText = document.createElement('p')
@@ -80,10 +60,6 @@
     fetchText.textContent = fetchText.textContent + "."
     if (fetching) setTimeout(()=> {fetchingData()},500)
   }
-  function iOS() {
-    return (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2)
-  }
-
 </script>
 </body>
 
